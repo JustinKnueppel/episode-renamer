@@ -1,0 +1,3 @@
+fuzzywuzzy
+pick
+python-Levenshtein
