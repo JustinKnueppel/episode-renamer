@@ -20,6 +20,8 @@ def parse_args():
                         help="list of current files, --formats to see required format")
     parser.add_argument("--targets", "-t", type=str,
                         help="list of target titles, --formats to see required format")
+    parser.add_argument("--fuzzy-count", "-n", type=int, default=3,
+                        dest="n", help="number of fuzzy matches to choose from")
     parser.add_argument("--output", "-o", type=str,
                         default="out", help="output directory")
     parser.add_argument("--formats", action="store_true",
@@ -28,7 +30,7 @@ def parse_args():
     return parser.parse_args()
 
 
-def find_closest(title, targets, n=3):
+def find_closest(title, targets, n):
     augmented = list(
         map(
             lambda target:
@@ -97,8 +99,8 @@ targets.json:
     not_found = []
 
     for c in current_names:
-        closest3 = find_closest(c["title"], target_names)
-        choice, idx = get_choice(c["raw"], closest3)
+        closest = find_closest(c["title"], target_names, args.n)
+        choice, idx = get_choice(c["raw"], closest)
         if choice == "QUIT":
             # Save results thus far
             break
