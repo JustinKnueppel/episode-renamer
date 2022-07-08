@@ -22,12 +22,13 @@ Upon either finishing all episodes or quitting, three files will be written. `fi
 
 #### Arguments
 
-| Option            | Description                            |
-| ----------------- | -------------------------------------- |
-| `--current`, `-c` | List of current files                  |
-| `--targets`, `-t` | List of real episodes                  |
-| `--output`, `-o`  | Output directory                       |
-| `--formats`       | Print help text for input file formats |
+| Option                | Default | Description                            |
+| --------------------- | ------- | -------------------------------------- |
+| `--current`, `-c`     | N/A     | List of current files                  |
+| `--targets`, `-t`     | N/A     | List of real episodes                  |
+| `--output`, `-o`      | `out`   | Output directory                       |
+| `--fuzzy-count`, `-n` | `3`     | Number of fuzzy matches to choose from |
+| `--formats`           | N/A     | Print help text for input file formats |
 
 ### `rename.py`
 
@@ -35,11 +36,11 @@ This script takes a list files to be renamed and renames them accordingly
 
 #### Arguments
 
-| Option             | Description                                            |
-| ------------------ | ------------------------------------------------------ |
-| `--file`, `-f`     | List of files to be renamed                            |
-| `--base-dir`, `-b` | Directory to `chdir` into before reading/writing files |
-| `--format`         | Print help text for input file format                  |
+| Option             | Default | Description                                            |
+| ------------------ | ------- | ------------------------------------------------------ |
+| `--file`, `-f`     | N/A     | List of files to be renamed                            |
+| `--base-dir`, `-b` | `.`     | Directory to `chdir` into before reading/writing files |
+| `--format`         | N/A     | Print help text for input file format                  |
 
 ## File Formats
 
