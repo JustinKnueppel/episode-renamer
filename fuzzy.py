@@ -117,6 +117,7 @@ targets.json:
     ) and episode["raw"] not in not_found, current_names))
     finalized = list(map(lambda current: {"old": current["raw"], "new": current["raw"].replace(
         current["number"], current["new_number"])}, found))
+    not_found_formatted = list(map(lambda e: {"old": e, "new": e}, not_found))
 
     if not os.path.exists(args.output):
         os.makedirs(args.output)
@@ -127,7 +128,7 @@ targets.json:
         json.dump(finalized, f, indent=2)
 
     with open("not_found.json", "w") as f:
-        json.dump(not_found, f, indent=2)
+        json.dump(not_found_formatted, f, indent=2)
 
     with open("remaining.json", "w") as f:
         json.dump(remaining, f, indent=2)
